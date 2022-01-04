@@ -76,11 +76,20 @@ public final class CustomSelector<G extends Gene<?, G>,	C extends Comparable<? s
 			final MSeq<Phenotype<G, C>> copy = population.asISeq().copy();
 //			System.out.println(copy.getClass().getName());
 			System.out.println("0 : "+copy.asList().get(0).genotype());
-			System.out.println("0 : "+copy.asList().get(0).genotype().get(0).get(0).toString());
+			System.out.println("0 : "+copy.asList().get(0).genotype().get(0).get(0)); // 이렇게 gene 하나에 접근 가능함.
 			System.out.println("1 : "+copy.asList().get(1));
 			System.out.println("1 : "+copy.asList().get(5));
 //			final List<Integer> list = new ArrayList<>();
 //			list = copy.asList().get(0).get(0);
+			
+			/*
+			 * gene 하나씩 꺼내서 계산하고 , 다시 population 꼴로 만드는것 필요.
+			 * 그거 끝나면 직접 넣어도 될듯
+			 * 
+			 * 
+			 * 
+			 * */
+			
 			copy.sort((a, b) ->
 				opt.<C>descending().compare(a.fitness(), b.fitness()));
 
